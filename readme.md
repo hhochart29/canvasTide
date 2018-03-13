@@ -1,6 +1,6 @@
 ## Preview
 
-https://hhochart29.github.io/?
+https://hhochart29.github.io/canvasTide
 
 ## Install :
 
