@@ -16,18 +16,35 @@ export default class H2o {
     this.space = space
   }
 
+  /**
+   * Draw an H2O molecule
+   *
+   */
   draw () {
 
-    // Particule principale
+    // H atom
     this.drawH(this.x, this.y, this.r)
 
-    // Particule Secondaire
-    let limitX = this.x + this.r + (this.r * H2o.random(1.2))
-    let limitY = this.y + this.r + (this.r * H2o.random(1.2))
-    this.drawO(limitX, limitY, this.r / 2)
+    // O atom
+    let decider = Math.floor(Math.random() * 2) === 0 ? -1 : 1
+    let decider2 = Math.floor(Math.random() * 2) === 0 ? -1 : 1
 
+    let X1 = this.x + this.r * decider + this.r * H2o.random(this.space) * decider
+    let X2 = this.x - this.r * decider2 - this.r * H2o.random(this.space) * decider2
+
+    let Y1 = this.y + this.r * -decider2 + this.r * H2o.random(this.space) * -decider2
+    let Y2 = this.y - this.r * decider - this.r * H2o.random(this.space) * decider
+
+    this.drawO(X1, Y1, this.r / 2, decider, decider2)
+    this.drawO(X2, Y2, this.r / 2, -decider2, decider)
   }
 
+  /**
+   *
+   * @param xH
+   * @param yH
+   * @param rH
+   */
   drawH (xH, yH, rH) {
     this.ctx.beginPath()
     this.ctx.arc(xH, yH, rH, 0, 2 * Math.PI, false)
@@ -36,12 +53,28 @@ export default class H2o {
     this.ctx.closePath()
   }
 
-  drawO (xO, yO, rO) {
+  /**
+   *
+   * @param xO
+   * @param yO
+   * @param rO
+   * @param decider
+   * @param decider2
+   */
+  drawO (xO, yO, rO, decider, decider2) {
     this.ctx.beginPath()
     this.ctx.arc(xO, yO, rO, 0, 2 * Math.PI, false)
     this.ctx.fillStyle = '#fff'
     this.ctx.fill()
     this.ctx.closePath()
+
+    // drawing line from O to H particle
+    this.ctx.beginPath()
+    this.ctx.moveTo(this.x + (rO * decider), this.y + (rO * -decider2))
+    this.ctx.lineTo(xO, yO)
+    this.ctx.lineWidth = 3
+    this.ctx.strokeStyle = '#fff'
+    this.ctx.stroke()
   }
 
   static random (factor) {
