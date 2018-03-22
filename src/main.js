@@ -65,7 +65,5 @@ gui.add(params, 'rayon', 0, 720).onChange(newValue => {
   circle.draw()
 })
 
-var a = new CanvasSVG
-
 circle = new Circle(ctx, W, H, params.step, params.angle, params.rayon)
 circle.draw()
