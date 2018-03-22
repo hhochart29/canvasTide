@@ -1,12 +1,12 @@
 require('./styles/main.scss')
 import H2o from './classes/h2o'
 import Circle from './classes/circle'
-import Request from './classes/request'
+import { getURL, random } from './classes/utils'
 
 const weatherRequest = 'http://api.wunderground.com/api/f58c05f45013379c/conditions/lang:FR/q/France/Nantes.json'
 const weather = {}
 
-Request.getURL(weatherRequest)
+getURL(weatherRequest)
   .then(response => {
     let h = response.current_observation.relative_humidity
     weather.wind = response.current_observation.wind_kph
@@ -26,19 +26,15 @@ const H = 800
 canvas.width = W
 canvas.height = H
 
-const random = (factor) => {
-  return Math.random() * factor
-}
-
 // const particles = []
 // for (let i = 0; i < 120; i++) {
-//   particles.push(new H2o(ctx, H2o.random(W), H2o.random(H), 10, 1.5))
+//   particles.push(new H2o(ctx, random(W), random(H), 10, 1.5))
 // }
 
 // particles.forEach(e => {
 //   e.draw()
 // })
 
-const circle = new Circle(ctx)
+const circle = new Circle(ctx, W, H)
 
 circle.draw()

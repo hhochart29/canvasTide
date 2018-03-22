@@ -1,3 +1,5 @@
+import {random} from './utils'
+
 export default class H2o {
 
   /**
@@ -29,11 +31,11 @@ export default class H2o {
     let decider = Math.floor(Math.random() * 2) === 0 ? -1 : 1
     let decider2 = Math.floor(Math.random() * 2) === 0 ? -1 : 1
 
-    let X1 = this.x + this.r * decider + this.r * H2o.random(this.space) * decider
-    let X2 = this.x - this.r * decider2 - this.r * H2o.random(this.space) * decider2
+    let X1 = this.x + this.r * decider + this.r * random(this.space) * decider
+    let X2 = this.x - this.r * decider2 - this.r * random(this.space) * decider2
 
-    let Y1 = this.y + this.r * -decider2 + this.r * H2o.random(this.space) * -decider2
-    let Y2 = this.y - this.r * decider - this.r * H2o.random(this.space) * decider
+    let Y1 = this.y + this.r * -decider2 + this.r * random(this.space) * -decider2
+    let Y2 = this.y - this.r * decider - this.r * random(this.space) * decider
 
     this.drawO(X1, Y1, this.r / 2, decider, decider2)
     this.drawO(X2, Y2, this.r / 2, -decider2, decider)
