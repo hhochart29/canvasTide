@@ -7,7 +7,7 @@ https://hhochart29.github.io/canvasTide
 ``npm install``
 
 
-## Démarrage du serveur :
+## Démarrage du serveur de dev :
 
 ``npm run build``
 
@@ -17,3 +17,7 @@ ou
 ## Deploiement :
 
 ``npm run deploy``
+
+## Serveur Express servant au scraping :
+
+``node src/server.js``

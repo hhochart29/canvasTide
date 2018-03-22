@@ -6,8 +6,15 @@ import dat from 'dat.gui'
 
 
 const weatherRequest = 'https://api.wunderground.com/api/f58c05f45013379c/conditions/lang:FR/q/France/Nantes.json'
+const tideURL = 'http://localhost:3000/'
 const weather = {}
 let circle
+
+getURL(tideURL)
+  .then(response => {
+    console.log(response)
+    weather.tide = response.result
+  })
 
 getURL(weatherRequest)
   .then(response => {
@@ -19,10 +26,11 @@ getURL(weatherRequest)
     weather.humidity = parseFloat(h.substring(0, h.length - 1))
   })
 
+console.log(weather)
 const canvas = document.querySelector('#canvas')
 const ctx = canvas.getContext('2d')
 
-const W = 1000
+const W = 1500
 const H = 1000
 
 canvas.width = W
@@ -52,7 +60,7 @@ gui.add(params, 'step', 1, 80).onChange(newValue => {
   circle = new Circle(ctx, W, H, params.step, params.angle, params.rayon)
   circle.draw()
 })
-gui.add(params, 'angle', 0, 200).onChange(newValue => {
+gui.add(params, 'angle', -1000, 1000).onChange(newValue => {
   params.angle = newValue
   circle = null
   circle = new Circle(ctx, W, H, params.step, params.angle, params.rayon)

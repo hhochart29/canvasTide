@@ -30,7 +30,9 @@
   },
   "dependencies": {
     "dat.gui": "^0.7.1",
+    "express": "^4.16.3",
     "gsap": "^1.20.2",
+    "puppeteer": "^1.2.0",
     "stats.js": "^0.17.0"
   }
 }
