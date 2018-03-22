@@ -1,6 +1,6 @@
 export async function getURL (url) {
   let response = await fetch(url)
-  return await response.json()
+  return response.json()
 }
 
 export function random (factor) {
