@@ -5,7 +5,7 @@ import { getURL, random } from './classes/utils'
 import dat from 'dat.gui'
 
 
-const weatherRequest = 'http://api.wunderground.com/api/f58c05f45013379c/conditions/lang:FR/q/France/Nantes.json'
+const weatherRequest = 'https://api.wunderground.com/api/f58c05f45013379c/conditions/lang:FR/q/France/Nantes.json'
 const weather = {}
 let circle
 
@@ -65,6 +65,7 @@ gui.add(params, 'rayon', 0, 720).onChange(newValue => {
   circle.draw()
 })
 
+var a = new CanvasSVG
 
 circle = new Circle(ctx, W, H, params.step, params.angle, params.rayon)
 circle.draw()
