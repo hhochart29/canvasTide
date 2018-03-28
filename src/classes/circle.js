@@ -1,12 +1,12 @@
 export default class Circle {
 
   /**
-   *
    * @param ctx - Context of canvas
    * @param {Number} W - Width of canvas
    * @param {Number} H - Height of canvas
    * @param {Number} inc - longeur d'une ligne
-   * @param {Number} angle - rayon de l'angle
+   * @param {Number} angle - amplitude de l'angle
+   * @param {Number} rayon - rayon de l'angle
    */
   constructor (ctx, W, H, inc, angle, rayon) {
     this.ctx = ctx
@@ -16,14 +16,14 @@ export default class Circle {
     this.y = this.H / 2
     this.inc = inc //insere un facteur
     this.angle = angle // insere un facteur ici
-    this.r = rayon  // insere un facteur
+    this.r = rayon  // insere un facteurs
   }
 
   draw () {
     this.ctx.clearRect(0, 0, this.W, this.H);
     this.ctx.beginPath()
-    this.ctx.strokeStyle = '#fff'
     this.ctx.strokeWidth = 2
+    this.ctx.strokeStyle = '#fff'
 
     let startX = this.x
     let startY = this.y
@@ -53,12 +53,12 @@ export default class Circle {
   drawLine (x, y, inc, horizontal, angle) {
     if (horizontal === true) {
       this.ctx.moveTo(x + angle, y)
-      this.ctx.lineTo(x + inc - angle * 2, y)
+      // this.ctx.lineTo(x + inc - angle * 2, y)
 
       this.ctx.arcTo(x + inc, y, x + inc, y + inc, this.r)
     } else {
       this.ctx.moveTo(x, y + angle)
-      this.ctx.lineTo(x, y + inc - angle * 2)
+      // this.ctx.lineTo(x, y + inc - angle * 2)
 
       this.ctx.arcTo(x, y + inc, x - inc, y + inc, this.r)
 
