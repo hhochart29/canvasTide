@@ -39,6 +39,8 @@ server.get('/', function (req, res) {
     value = parseFloat(value.replace(/,/g, '.'))
     console.log(value)
     res.send({result: value})
+  }).catch(error => {
+    console.log(error)
   })
 })
 
