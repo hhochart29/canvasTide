@@ -21,8 +21,11 @@ export default class Circle {
 
   draw () {
     this.ctx.clearRect(0, 0, this.W, this.H);
+    this.ctx.fillRect(0,0,this.W,this.H)
+    this.ctx.fillStyle = '#000'
+
     this.ctx.beginPath()
-    this.ctx.strokeWidth = 2
+    this.ctx.strokeWidth = 1
     this.ctx.strokeStyle = '#fff'
 
     let startX = this.x
@@ -72,5 +75,6 @@ export default class Circle {
 
     }
   }
+
 
 }

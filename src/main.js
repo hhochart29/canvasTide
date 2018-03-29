@@ -15,14 +15,10 @@ const getWeather = async () => {
   return [await getURL(tideURL), await getURL(weatherRequest)]
 }
 
-const canvas = document.querySelector('#canvas')
-const ctx = canvas.getContext('2d')
-
 const W = 900
 const H = 900
 
-canvas.width = W
-canvas.height = H
+const ctx = new C2S(W, H, 'black')
 
 // const particles = []
 // for (let i = 0; i < 120; i++) {
@@ -45,8 +41,8 @@ a.then(response => {
   console.log(weather)
 
   const params = {
-    inc: weather.temperature + 10, // the number of line depends of the temperature. more line means cold weather
-    angle: weather.humidity * 10, // The space in the middle of the drawing relies on humidty. wet or dry means empty middle. average means filled middle
+    inc: weather.temperature < 0 ? Math.abs(weather.temperature) : weather.temperature / 2, // the number of line depends of the temperature. more line means cold weather
+    angle: weather.humidity * 5, // The space in the middle of the drawing relies on humidty. wet or dry means empty middle. average means filled middle
     rayon: weather.tide * 100 // The tide defines the curve of the angles. curvy angles means high water level.
   }
 
@@ -73,18 +69,22 @@ a.then(response => {
     circle.draw()
   })
 
-  const ctxsvg = new C2S(500,500);
-
-  //draw your canvas like you would normally
-  ctxsvg.fillStyle="red";
-  ctxsvg.fillRect(100,100,100,100);
-  //etc...
-
-  //serialize your SVG
-  const mySerializedSVG = ctxsvg.getSerializedSvg(); //true here, if you need to convert named to numbered entities.
-
   //If you really need to you can access the shadow inline SVG created by calling:
-  const svg = ctxsvg.getSvg();
+  const svg = ctx.getSvg()
   console.log(svg)
+  document.querySelector('body').appendChild(svg)
+})
+
+document.querySelector('#export').addEventListener('click', () => {
+  let svgExport = ctx.getSerializedSvg()
+  let filename = 'canvas.svg'
+
+  let pseudolink = document.createElement('a')
+  pseudolink.setAttribute('href', 'data:image/svg+xml;charset=utf-8, ' + encodeURIComponent(svgExport))
+  pseudolink.setAttribute('download', filename)
+  pseudolink.style.display = 'none'
+  document.body.appendChild(pseudolink)
+  pseudolink.click()
+  document.body.removeChild(pseudolink)
 })
 

@@ -27,3 +27,22 @@ canvas {
 	box-sizing: border-box;
 	//border: 1px solid #fff;
 }
+
+svg {
+	rect {
+		//fill: black !important;
+	}
+}
+
+#export {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	background-color: #fff;
+	color: black;
+	border: none;
+	padding: 5px 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	cursor: pointer;
+}
