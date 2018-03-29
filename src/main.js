@@ -41,7 +41,7 @@ a.then(response => {
   circle.draw()
 
   const gui = new dat.GUI()
-  gui.add(params, 'inc', 1, 80).onChange(newValue => {
+  gui.add(params, 'inc', 1, 30).onChange(newValue => {
     params.inc = newValue
     circle = null
     circle = new Circle(ctx, W, H, params.inc, params.angle, params.rayon, params.rain)
