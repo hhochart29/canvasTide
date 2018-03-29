@@ -2,7 +2,7 @@ const express = require('express')
 const server = express()
 const puppeteer = require('puppeteer')
 
-const PORT_LISTENING = 3000
+const PORT_LISTENING = process.env.PORT
 
 // Allow CORS
 server.use(function (req, res, next) {
