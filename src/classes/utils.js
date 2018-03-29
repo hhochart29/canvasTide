@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {String} url - URL to be fetched
+ * @returns {Promise<any>}
+ */
 export async function getURL (url) {
   let response = await fetch(url)
   return response.json()

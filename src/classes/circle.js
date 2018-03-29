@@ -50,6 +50,14 @@ export default class Circle {
     this.ctx.closePath()
   }
 
+  /**
+   *
+   * @param {Number} x
+   * @param {Number} y
+   * @param {Number} inc
+   * @param {Number} horizontal
+   * @param {Number} angle
+   */
   drawLine (x, y, inc, horizontal, angle) {
     if (horizontal === true) {
       this.ctx.moveTo(x + angle, y)
