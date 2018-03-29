@@ -5,7 +5,7 @@ import dat from 'dat.gui'
 import C2S from 'canvas2svg'
 
 const weatherRequest = 'https://api.wunderground.com/api/f58c05f45013379c/conditions/lang:FR/q/France/Nantes.json'
-const tideURL = 'http://localhost:3000/'
+const tideURL = 'https://weatherplotter.herokuapp.com/'
 const weather = {}
 let circle
 
