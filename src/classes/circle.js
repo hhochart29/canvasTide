@@ -7,32 +7,32 @@ export default class Circle {
    * @param {Number} inc - longeur d'une ligne
    * @param {Number} angle - amplitude de l'angle
    * @param {Number} rayon - rayon de l'angle
+   * @param {Number} humidity - influe sur la taille de la spirale
    */
-  constructor (ctx, W, H, inc, angle, rayon) {
+  constructor (ctx, W, H, inc, angle, rayon, humidity) {
     this.ctx = ctx
     this.W = W
     this.H = H
     this.x = this.W / 2
     this.y = this.H / 2
-    this.inc = inc //insere un facteur
-    this.angle = angle // insere un facteur ici
-    this.r = rayon  // insere un facteurs
+    this.inc = inc
+    this.angle = angle
+    this.r = rayon
+    this.humidity = humidity
   }
 
   draw () {
-    this.ctx.clearRect(0, 0, this.W, this.H);
-    this.ctx.fillRect(0,0,this.W,this.H)
-    this.ctx.fillStyle = '#000'
+    this.ctx.clearRect(0, 0, this.W, this.H) // Comment this line when exporting to SVG
 
     this.ctx.beginPath()
     this.ctx.strokeWidth = 1
-    this.ctx.strokeStyle = '#fff'
+    this.ctx.strokeStyle = '#000'
 
     let startX = this.x
     let startY = this.y
     let direction
 
-    for (let i = 1; i < 105; i++) {
+    for (let i = 1; i < this.humidity; i++) {
       if (i % 2 === 0) {
         direction = 1
         this.angle = Math.abs(this.angle)
@@ -58,7 +58,7 @@ export default class Circle {
    * @param {Number} x
    * @param {Number} y
    * @param {Number} inc
-   * @param {Number} horizontal
+   * @param {Boolean} horizontal
    * @param {Number} angle
    */
   drawLine (x, y, inc, horizontal, angle) {
@@ -75,6 +75,5 @@ export default class Circle {
 
     }
   }
-
 
 }
