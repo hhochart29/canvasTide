@@ -9,15 +9,12 @@ https://hhochart29.github.io/canvasTide
 
 ## Démarrage du serveur de dev :
 
-``npm run build``
+``npm run start2`` for local dev
 
-ou
-``npm start``
+``npm start`` if you need local node server for scraping
 
-## Deploiement :
-
-``npm run deploy``
 
 ## Serveur Express servant au scraping :
 
+it should be hosted & working. if not :
 ``node src/server.js``

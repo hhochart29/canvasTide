@@ -31,7 +31,7 @@ a.then(response => {
   console.log(weather)
 
   const params = {
-    inc: weather.temperature < 0 ? Math.abs(weather.temperature) : weather.temperature / Math.PI, // the number of line depends of the temperature. more line means cold weather
+    inc: weather.temperature < 0 ? Math.abs(weather.temperature) : weather.temperature / Math.PI, // the number of line depends of the temperature anx the rain. more line means cold weather
     angle: weather.humidity * 2, // The space in the middle of the drawing relies on humidty. wet or dry means empty middle. average means filled middle
     rayon: weather.tide * 100, // The tide defines the curve of the angles. curvy angles means high water level.
     rain: weather.rain < 0.5 ? 100 : 200
@@ -46,29 +46,31 @@ a.then(response => {
     circle = null
     circle = new Circle(ctx, W, H, params.inc, params.angle, params.rayon, params.rain)
     circle.draw()
+    const svg = ctx.getSvg()
   })
   gui.add(params, 'angle', 0, 1000).onChange(newValue => {
     params.angle = newValue
     circle = null
     circle = new Circle(ctx, W, H, params.inc, params.angle, params.rayon, params.rain)
     circle.draw()
+    const svg = ctx.getSvg()
   })
   gui.add(params, 'rayon', 0, 720).onChange(newValue => {
     params.rayon = newValue
     circle = null
     circle = new Circle(ctx, W, H, params.inc, params.angle, params.rayon, params.rain)
     circle.draw()
+    const svg = ctx.getSvg()
   })
   gui.add(params, 'rain', 0, 720).onChange(newValue => {
     params.rain = newValue
     circle = null
     circle = new Circle(ctx, W, H, params.inc, params.angle, params.rayon, params.rain)
     circle.draw()
+    const svg = ctx.getSvg()
   })
 
-  //If you really need to you can access the shadow inline SVG created by calling:
   const svg = ctx.getSvg()
-  console.log(svg)
   document.querySelector('body').appendChild(svg)
 })
 
