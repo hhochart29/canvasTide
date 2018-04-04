@@ -1,5 +1,5 @@
 {
-  "name": "canvasTide",
+  "name": "canvastide",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hhochart29/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    "url": "git+https://github.com/hhochart29/canvasTide"
   },
   "author": "Herve",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hhochart29/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/issues"
+    "url": "https://github.com/hhochart29/canvasTide/issues"
   },
-  "homepage": "https://github.com/hhochart29/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX#readme",
+  "homepage": "https://github.com/hhochart29/canvasTide#readme",
   "devDependencies": {
     "css-loader": "^0.28.7",
     "file-loader": "^0.11.2",

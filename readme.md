@@ -7,14 +7,14 @@ https://hhochart29.github.io/canvasTide
 ``npm install``
 
 
-## Démarrage du serveur de dev :
+## Webdev server :
 
 ``npm run start2`` for local dev
 
 ``npm start`` if you need local node server for scraping
 
 
-## Serveur Express servant au scraping :
+## Express server for scraping :
 
 it should be hosted & working. if not :
 ``node src/server.js``
